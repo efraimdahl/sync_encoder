@@ -28,7 +28,7 @@ class ControlTransformer(PreTrainedModel):
         self.encoder = torch.nn.TransformerEncoder(encoder_layer, num_layers=config.nlayer)
         
     def forward(self, control_seq):
-        print(control_seq.shape)
+        #print(control_seq.shape)
         # control_seq: [B, 48, control_dim]
         x = self.input_proj(control_seq)               # [B, 48, embed_dim]
         x = x + self.pos_emb.unsqueeze(0)              # add positional encoding
